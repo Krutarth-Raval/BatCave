@@ -2,17 +2,22 @@
 document.addEventListener("DOMContentLoaded", () => {
   const batmobilesData = "batmobiles.json";
   const batmobileContainer = document.querySelector(".all-batmobiles");
-  //   let allGadgets = [];
+  let allBatmobiles = [];
   getBatmobiles(batmobilesData);
 
   function getBatmobiles(url) {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        allBatmobiles = data; // Store all gadgets in a global array
-        batmobileData(allBatmobiles); // Display all gadgets initially
-      })
-      .catch((error) => console.error("Error fetching batmobiles:", error));
+    if (window.batmobilesData) {
+      allBatmobiles = window.batmobilesData;
+      batmobileData(allBatmobiles);
+    } else {
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          allBatmobiles = data; // Store all gadgets in a global array
+          batmobileData(allBatmobiles); // Display all gadgets initially
+        })
+        .catch((error) => console.error("Error fetching batmobiles:", error));
+    }
   }
 
   // Display gadgets in the container

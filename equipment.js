@@ -2,17 +2,22 @@
 document.addEventListener("DOMContentLoaded", () => {
   const equipmentData = "equipment.json";
   const gadgetContainer = document.querySelector(".all-gadget-container");
-  //   let allGadgets = [];
+  let allGadgets = [];
   getEquipment(equipmentData);
 
   function getEquipment(url) {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        allGadgets = data; // Store all gadgets in a global array
-        gadgetData(allGadgets); // Display all gadgets initially
-      })
-      .catch((error) => console.error("Error fetching equipment:", error));
+    if (window.equipmentData) {
+      allGadgets = window.equipmentData;
+      gadgetData(allGadgets);
+    } else {
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          allGadgets = data; // Store all gadgets in a global array
+          gadgetData(allGadgets); // Display all gadgets initially
+        })
+        .catch((error) => console.error("Error fetching equipment:", error));
+    }
   }
 
   // Display gadgets in the container

@@ -54,9 +54,17 @@
     </div>
 </header>
 
-<body>
+<body class="movies-page">
+    <div class="scanline-overlay"></div>
 
     <div id="movie">
+        <div class="movie-hud-header">
+            <div class="hud-status">
+                <span class="hud-pulse"></span>
+                <span>DATALINK: ACTIVE // SECTOR: MOVIE_ARCHIVES</span>
+            </div>
+            <div class="hud-serial">BAT-DB // RECORDS: 24</div>
+        </div>
 
         <div class="movie-container">
             <p class="about">MOVIES</p>
@@ -146,6 +154,7 @@
         </div>
     </footer>
 
+    <script src="movies-data.js"></script>
     <script src="script.js"></script>
     <script src="movies.js"></script>
 </body>

@@ -55,57 +55,289 @@
     </div>
 </header>
 
-<body>
+<body class="gallery-page">
+    <div class="scanline-overlay"></div>
 
     <div id="gallery">
+        <div class="movie-hud-header">
+            <div class="hud-status">
+                <span class="hud-pulse"></span>
+                <span>DATALINK: ACTIVE // SECTOR: SURVEILLANCE_FEEDS</span>
+            </div>
+            <div class="hud-serial">FEED: SECURE // SENSOR_LOGS: 30</div>
+        </div>
+
         <div class="gallery-container">
             <p class="about">GALLERY</p>
             <div class="gallery-box">
-                <div class="gallery-row">
-                    <img src="batmanGallery/row one/img1.webp" alt="" class="row-image">
-                    <img src="batmanGallery/row one/img2.jpg" alt="" class="row-image">
-                    <img src="batmanGallery/row one/img3.webp" alt="" class="row-image">
-                    <img src="batmanGallery/row one/img4.jpg" alt="" class="row-image">
-                    <img src="batmanGallery/row one/img5.webp" alt="" class="row-image">
-                    <img src="batmanGallery/row one/img6.webp" alt="" class="row-image">
+                <!-- Row 1 -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row one/img1.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
                 </div>
-                <div class="gallery-row">
-                    <img src="batmanGallery/row two/img101.webp" alt="" class="row-image">
-                    <img src="batmanGallery/row two/img102.webp" alt="" class="row-image">
-                    <img src="batmanGallery/row two/img103.webp" alt="" class="row-image">
-                    <img src="batmanGallery/row two/img104.webp" alt="" class="row-image">
-                    <img src="batmanGallery/row two/img105.webp" alt="" class="row-image">
-                    <img src="batmanGallery/row two/img106.jpg" alt="" class="row-image">
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row one/img2.jpg" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
                 </div>
-                <div class="gallery-row">
-                    <img src="batmanGallery/row one/img1.webp" alt="" class="row-image">
-                    <img src="batmanGallery/row one/img2.jpg" alt="" class="row-image">
-                    <img src="batmanGallery/row one/img3.webp" alt="" class="row-image">
-                    <img src="batmanGallery/row one/img4.jpg" alt="" class="row-image">
-                    <img src="batmanGallery/row one/img5.webp" alt="" class="row-image">
-                    <img src="batmanGallery/row one/img6.webp" alt="" class="row-image">
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row one/img3.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
                 </div>
-                <div class="gallery-row">
-                    <img src="batmanGallery/row two/img101.webp" alt="" class="row-image">
-                    <img src="batmanGallery/row two/img102.webp" alt="" class="row-image">
-                    <img src="batmanGallery/row two/img103.webp" alt="" class="row-image">
-                    <img src="batmanGallery/row two/img104.webp" alt="" class="row-image">
-                    <img src="batmanGallery/row two/img105.webp" alt="" class="row-image">
-                    <img src="batmanGallery/row two/img106.jpg" alt="" class="row-image">
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row one/img4.jpg" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
                 </div>
-                <div class="gallery-row">
-                    <img src="batmanGallery/row one/img1.webp" alt="" class="row-image">
-                    <img src="batmanGallery/row one/img2.jpg" alt="" class="row-image">
-                    <img src="batmanGallery/row one/img3.webp" alt="" class="row-image">
-                    <img src="batmanGallery/row one/img4.jpg" alt="" class="row-image">
-                    <img src="batmanGallery/row one/img5.webp" alt="" class="row-image">
-                    <img src="batmanGallery/row one/img6.webp" alt="" class="row-image">
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row one/img5.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row one/img6.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row two/img101.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row two/img102.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row two/img103.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row two/img104.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row two/img105.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row two/img106.jpg" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row one/img1.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row one/img2.jpg" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row one/img3.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row one/img4.jpg" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row one/img5.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row one/img6.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+
+                <!-- Row 4 -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row two/img101.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row two/img102.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row two/img103.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row two/img104.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row two/img105.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row two/img106.jpg" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+
+                <!-- Row 5 -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row one/img1.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row one/img2.jpg" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row one/img3.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row one/img4.jpg" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row one/img5.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="batmanGallery/row one/img6.webp" alt="" class="gallery-img">
+                    <div class="gallery-item-hover">
+                        <div class="gallery-reticle"></div>
+                        <div class="gallery-label">// ACTIVATE_SCAN</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Lightbox Modal -->
+    <div id="gallery-lightbox" class="lightbox-modal" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <div class="lightbox-hud-top">
+                <span class="lightbox-hud-title">// CORE_DATAFILE.RAW</span>
+                <span class="lightbox-hud-status">STATUS: COMPILING_TELEMETRY</span>
+            </div>
+            <div class="lightbox-img-wrapper">
+                <div class="lightbox-corner-bracket top-left"></div>
+                <div class="lightbox-corner-bracket top-right"></div>
+                <div class="lightbox-corner-bracket bottom-left"></div>
+                <div class="lightbox-corner-bracket bottom-right"></div>
+                <img id="lightbox-img" src="" alt="Enlarged Surveillance">
+            </div>
+            <div class="lightbox-hud-bottom">
+                <span class="lightbox-hud-info">SOURCE: WAYNE_ORBITAL_NET</span>
+                <span class="lightbox-hud-zoom">FEED_STRENGTH: 100%</span>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
+    <script>
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            const lightbox = document.getElementById('gallery-lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = img.src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('gallery-lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
 </body>
 
 </html>

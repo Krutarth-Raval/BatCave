@@ -4,21 +4,30 @@ function getMovieIdFromURL() {
   return urlParams.get("id");
 }
 
-// Fetch the movies.json file and display the selected movie details
-fetch("movies.json")
-  .then((response) => response.json())
-  .then((movies) => {
-    const movieId = getMovieIdFromURL();
-    const movie = movies.find((m) => m.id == movieId);
-    // console.log(movies);
-
+// Load the movie details from window.moviesData or fetch the movies.json file
+function loadMovieDetails() {
+  const movieId = getMovieIdFromURL();
+  if (window.moviesData) {
+    const movie = window.moviesData.find((m) => m.id == movieId);
     if (movie) {
       displayMovieInfo(movie);
     } else {
       console.error("Movie not found");
     }
-  })
-  .catch((error) => console.error("Error fetching movie data:", error));
+  } else {
+    fetch("movies.json")
+      .then((response) => response.json())
+      .then((movies) => {
+        const movie = movies.find((m) => m.id == movieId);
+        if (movie) {
+          displayMovieInfo(movie);
+        } else {
+          console.error("Movie not found");
+        }
+      })
+      .catch((error) => console.error("Error fetching movie data:", error));
+  }
+}
 
 // Function to display the movie details on the page
 const detailContainer = document.querySelector(".movie-detail-container");
@@ -39,6 +48,12 @@ function displayMovieInfo(movie) {
     streams,
   } = movie;
 
+  // Set blurred dynamic backdrop color
+  const bgBlur = document.getElementById("page-bg-blur");
+  if (bgBlur) {
+    bgBlur.style.backgroundImage = `url('${poster}')`;
+  }
+
   // Generate genres HTML if genres are available
   let genresHTML = "";
   if (genres && genres.length > 0) {
@@ -52,33 +67,34 @@ function displayMovieInfo(movie) {
   // Inject movie details dynamically
   movieElement.innerHTML = `
   <div class="movie-poster-image">
-  <img src="${poster}" alt="${title} Poster" class="movie-image-poster">
+    <img src="${poster}" alt="${title} Poster" class="movie-image-poster">
   </div>
   <div class="movie-details">
-  <p class="movie-detail-title">${title}</p>
-  <p class="movie-detail-year">${year}</p>
-  
-  <div class="other-details">
-  <div class="hour-genres">
-  <p class="movie-detail-hour">${runtime ? runtime : "N/A"}</p>
-  <p class="movie-detail-genres">
-  ${genresHTML}
-  </p>
-  </div>
-  
-  <p class="movie-detail-rating">
-  <i class="fa fa-star STAR"></i> ${imdbRating} <span>IMDb</span>
-  </p>
-  <p class="movie-detail-overview">
-  ${overview}
-  </p>
-  
-  <p class="movie-trailer">
-  <a href="https://www.youtube.com/watch?v=${trailerKey}" target="_blank" rel="noopener noreferrer">
-  Watch Trailer <i class="fa-solid fa-play PLAY"></i>
-  </a>
-  </p>
-  </div>
+    <p class="movie-detail-title">${title}</p>
+    <p class="movie-detail-year">[ RECORDED_YEAR // ${year} ]</p>
+    
+    <div class="other-details">
+      <div class="hour-genres">
+        <p class="movie-detail-hour">${runtime ? runtime : "N/A"}</p>
+        <p class="movie-detail-genres">
+          ${genresHTML}
+        </p>
+      </div>
+      
+      <p class="movie-detail-rating">
+        <span class="hud-label">CRITICAL_RATING:</span> <i class="fa fa-star STAR"></i> ${imdbRating} <span class="imdb-pill">IMDb</span>
+      </p>
+      <p class="movie-detail-overview">
+        <span class="hud-label-block">OVERVIEW_LOG:</span>
+        ${overview}
+      </p>
+      
+      <p class="movie-trailer">
+        <a href="https://www.youtube.com/watch?v=${trailerKey}" target="_blank" rel="noopener noreferrer">
+          Watch Trailer <i class="fa-solid fa-play PLAY"></i>
+        </a>
+      </p>
+    </div>
   </div>
   `;
   detailContainer.appendChild(movieElement);
@@ -109,13 +125,19 @@ function displayMovieInfo(movie) {
 
     streams.forEach((stream) => {
       const streamBox = document.createElement("div");
-      streamBox.classList.add("stream-box-1");
+      streamBox.classList.add("stream-card-new");
 
       streamBox.innerHTML = `
-        <a href="${stream.link}" target="_blank" rel="noopener noreferrer">
-          <img src="${stream.image}" alt="${stream.name}" class="stream-image">
+        <div class="stream-provider-logo">
+          <img src="${stream.image}" alt="${stream.name}">
+        </div>
+        <div class="stream-provider-info">
+          <span class="stream-provider-status">// CONNECTIVITY: SECURED</span>
+          <span class="stream-provider-name">FEED NODE: ${stream.name.toUpperCase()}</span>
+        </div>
+        <a href="${stream.link}" target="_blank" rel="noopener noreferrer" class="stream-provider-btn">
+          ESTABLISH LINK ⨠
         </a>
-        <p class="stream-name">${stream.name}</p>
       `;
 
       streamingBox.appendChild(streamBox);
@@ -130,3 +152,4 @@ function displayMovieInfo(movie) {
 }
 
 // Update the story line if available
+loadMovieDetails();

@@ -21,13 +21,22 @@
     <title>Batcave-about</title>
 </head>
 
-<body>
+<body class="moviedetails-page">
+    <div class="page-bg-blur" id="page-bg-blur"></div>
+    <div class="scanline-overlay"></div>
 
     <div id="movie-details">
         <p class="go-back"><a href="movies.html" rel="noopener noreferrer">
                 <i class="fa-solid fa-arrow-left LEFT-ARROW"></i> Back</a>
         </p>
         <div class="movie-detail-container">
+            <div class="batcomputer-hud-header">
+                <div class="hud-status">
+                    <span class="hud-pulse"></span>
+                    <span>SECURE DATALINK // ARCHIVE_0x7B9C</span>
+                </div>
+                <div class="hud-serial">SYS.LOC: GOTHAM.MAIN // ACCESS: LEVEL_ALPHA</div>
+            </div>
 
             <div class="movie-details-poster">
                 <div class="movie-poster-image">
@@ -93,63 +102,8 @@
         </div>
     </div>
 
-    <footer>
-        <div class="footer-box">
-            <!-- <div class="follow-page">
-                <a href="http://" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="http://" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
-                <a href="http://" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
-            </div> -->
-
-            <div class="quick-links">
-                <p class="footer-title">Quick-Links</p>
-                <div class="links">
-                    <a href="home.html">HOME</a>
-                    <a href="about.html">ABOUT BATMAN</a>
-                    <a href="movies.html">MOVIES</a>
-                    <a href="villains.html">VILLAINS</a>
-                    <a href="gadgets.html">GADGETS</a>
-                    <a href="gothamCity.html">GOTHAM CITY</a>
-                    <a href="">THE BATCAVE</a>
-                </div>
-
-            </div>
-
-            <div class="credits-source">
-                <p class="footer-title">Credits & Sources</p>
-                <div class="links">
-                    <a href="https://www.dc.com/characters/batman">DC Comics</a>
-                    <a
-                        href="https://www.halloweencostumes.com/blog/p-824-batman-rogues-gallery.aspx">HalloweenCostume</a>
-                    <a href="https://batman.fandom.com/wiki/Category:Batman%27s_Equipment">Fandom</a>
-                </div>
-            </div>
-
-            <div class="contact-box">
-                <p class="footer-title">Contact</p>
-                <form action="https://api.web3forms.com/submit" method="POST">
-                    <input type="hidden" name="access_key" value="699a1198-d5c0-453f-82ff-164ee5d1b27c">
-                    <label for="text">Your Name</label>
-                    <input type="text" name="Name" placeholder="Enter your name..." autocomplete="off"
-                        class="email-input" required>
-                    <label for="email">E-mail</label>
-                    <input type="email" name="email" placeholder="Enter your email..." autocomplete="on"
-                        class="email-input" required>
-
-                    <label for="text">Message</label>
-                    <textarea type="text" name="message" placeholder="Enter your message..." class="message-input"
-                        required minlength="20"></textarea>
-
-                    <button type="submit" class="send-btn">SEND</button>
-                </form>
-            </div>
-
-            <p class="copyright">&#169; 2024 Batcave Fansite. All rights reserved.</p>
-        </div>
-    </footer>
-
+    <script src="movies-data.js"></script>
     <script src="script.js"></script>
-    <script src="movies.js"></script>
     <script src="moviedetails.js"></script>
 </body>
 
