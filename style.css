@@ -95,6 +95,18 @@ nav {
   transition: all 0.3s ease;
 }
 
+.menu-btn .close-nav {
+  display: none !important;
+}
+
+.menu-btn .close-nav[style*="block"] {
+  display: block !important;
+}
+
+.menu-btn .open-nav[style*="none"] {
+  display: none !important;
+}
+
 .close-nav:hover,
 .open-nav:hover {
   color: #ffffff;
@@ -147,9 +159,18 @@ nav {
   text-shadow: 0 0 8px var(--bat-yellow-glow);
 }
 
+@keyframes bat-scanline {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
 .sidebar-menu {
   width: 0;
-  background: rgba(5, 5, 7, 0.96);
+  background: rgba(5, 5, 7, 0.98);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   height: 100vh;
@@ -158,34 +179,118 @@ nav {
   left: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  gap: 20px;
-  overflow: hidden;
+  gap: 12px;
+  padding-top: 100px;
+  padding-bottom: 40px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
   z-index: 999;
   border-right: 2px solid var(--bat-border);
-  box-shadow: 10px 0 40px rgba(0, 0, 0, 0.9);
-  transition: width 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  box-shadow: 10px 0 40px rgba(0, 0, 0, 0.95);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background-image: 
+    radial-gradient(rgba(245, 203, 92, 0.015) 1px, transparent 0),
+    linear-gradient(rgba(5, 5, 7, 0.98), rgba(8, 9, 12, 0.99));
+  background-size: 8px 8px, 100% 100%;
+}
+
+.sidebar-menu::before {
+  content: "SYS_LINK // BAT-OS_v4.8";
+  position: absolute;
+  top: 40px;
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: var(--bat-yellow-bright);
+  opacity: 0.8;
+  border-bottom: 1px dashed rgba(245, 203, 92, 0.2);
+  width: 80%;
+  text-align: center;
+  padding-bottom: 12px;
+  text-shadow: 0 0 6px var(--bat-yellow-glow);
+  pointer-events: none;
+}
+
+.sidebar-menu::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(245, 203, 92, 0.12),
+    transparent
+  );
+  animation: bat-scanline 6s linear infinite;
+  pointer-events: none;
+  z-index: 1000;
 }
 
 .sidebar-menu a {
   text-decoration: none;
   color: var(--bat-text-muted);
-  font-size: 18px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 2px;
-  padding: 12px 24px;
-  width: 100%;
+  letter-spacing: 3px;
+  padding: 14px 20px;
+  width: 85%;
+  margin: 2px auto;
   text-align: center;
   text-transform: uppercase;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
+  background: rgba(15, 16, 20, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  position: relative;
+  box-sizing: border-box;
+  
+  /* Corner HUD line setup */
+  background-image: 
+    linear-gradient(to right, var(--bat-yellow-bright) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, var(--bat-yellow-bright) 1.5px, transparent 1.5px),
+    linear-gradient(to left, var(--bat-yellow-bright) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, var(--bat-yellow-bright) 1.5px, transparent 1.5px),
+    linear-gradient(to right, var(--bat-yellow-bright) 1.5px, transparent 1.5px),
+    linear-gradient(to top, var(--bat-yellow-bright) 1.5px, transparent 1.5px),
+    linear-gradient(to left, var(--bat-yellow-bright) 1.5px, transparent 1.5px),
+    linear-gradient(to top, var(--bat-yellow-bright) 1.5px, transparent 1.5px);
+  background-position: 0 0, 0 0, 100% 0, 100% 0, 0 100%, 0 100%, 100% 100%, 100% 100%;
+  background-repeat: no-repeat;
+  background-size: 0 0;
+}
+
+.sidebar-menu a::before {
+  content: "> ";
+  opacity: 0;
+  color: var(--bat-yellow-bright);
+  transition: all 0.2s ease;
+  margin-right: 5px;
+  text-shadow: 0 0 6px var(--bat-yellow-glow);
+}
+
+.sidebar-menu a:hover::before,
+.sidebar-menu a.active::before {
+  opacity: 1;
 }
 
 .sidebar-menu a:hover,
 .sidebar-menu a.active {
   color: var(--bat-yellow-bright);
-  text-shadow: 0 0 10px var(--bat-yellow-glow);
-  background: rgba(245, 203, 92, 0.05);
+  background-color: rgba(245, 203, 92, 0.06);
+  background-size: 6px 6px;
+  border-color: rgba(245, 203, 92, 0.2);
+  text-shadow: 0 0 8px var(--bat-yellow-glow);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 #home,
 #about,
@@ -197,6 +302,7 @@ nav {
 #batcave,
 #batmobile {
   padding-top: 80px;
+  padding-bottom: 100px !important;
   margin: 0px 10px;
   border-radius: 10px;
 }
@@ -1503,7 +1609,7 @@ body.moviedetails-page {
 
 #movie-details {
   padding-top: 80px;
-  padding-bottom: 60px;
+  padding-bottom: 100px !important;
   max-width: 1200px;
   margin: 0 auto;
   min-height: 100vh;
@@ -2652,7 +2758,7 @@ body.batmobiles-page {
 
 .all-batmobiles {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr));
   gap: 30px;
   width: 100%;
   margin-top: 30px;
@@ -2774,30 +2880,9 @@ body.batmobiles-page {
     width: auto;
     margin: 20px 10px;
   }
-  .gallery-container {
-    width: auto;
-  }
-  .gallery-box {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    background-color: #0f0f0f;
-    border-radius: 10px;
-    /* gap: 10px; */
-    /* flex-wrap: nowrap; */
-    /* margin-bottom: 20px; */
-    padding: 10px;
-    height: 1600px;
-  }
-  .gallery-row {
-    width: 100%;
-    /* border: 1px solid red; */
-  }
 
   .batman-movie-container {
     gap: 8px;
-  }
-  .movie-box {
-    width: 180px;
   }
   .movie-poster-box {
     height: 250px;
@@ -2813,11 +2898,11 @@ body.batmobiles-page {
 
 
 
-  .batmobile-box {
-    width: 80%;
-  }
 }
 @media screen and (max-width: 800px) {
+  .go-back {
+    margin: 10px 20px 15px 20px;
+  }
   .movie-detail-container {
     padding: 80px 20px 20px 20px;
     height: auto;
@@ -2945,6 +3030,30 @@ body.batmobiles-page {
 }
 
 @media screen and (max-width: 600px) {
+  nav {
+    padding: 0 15px;
+  }
+  .about-container,
+  .movie-container,
+  .villain-container,
+  .gadget-container,
+  .gotham-container,
+  .batcave-container,
+  .batmobile-container,
+  .gallery-container {
+    padding: 0 15px !important;
+  }
+  .stories,
+  .storiesOfGotham,
+  .storiesOfBatcave {
+    margin: 15px 0;
+    padding: 20px 15px;
+    background-color: #0f0f0f;
+    border-radius: 10px;
+  }
+  .go-back {
+    margin: 10px 15px 15px 15px;
+  }
   #home,
   #about,
   #gallery,
@@ -2970,12 +3079,6 @@ body.batmobiles-page {
     height: 100%;
     object-fit: cover;
   }
-  .stories {
-    margin: 10px 0px;
-    padding: 5px 10px;
-    background-color: #0f0f0f;
-    border-radius: 10px;
-  }
   .reference {
     height: max-content;
   }
@@ -2990,28 +3093,10 @@ body.batmobiles-page {
   .sidebar-menu a {
     justify-content: center;
   }
-  .gallery-box {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background-color: #0f0f0f;
-    border-radius: 10px;
-    /* gap: 10px; */
-    flex-wrap: nowrap;
-    /* margin-bottom: 20px; */
-    padding: 10px;
-    height: 1600px;
-  }
-  .gallery-row {
-    width: 100%;
-    /* border: 1px solid red; */
-  }
-
   .batman-movie-container,
   .batman-animated-movie-container {
-    gap: 5px;
-  }
-  .movie-box {
-    width: 150px;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
   }
   .movie-poster-box {
     height: 200px;
